@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function join (){
-        return view ('Register');
+    public function enter (){
+        return view ('Home');
     }
 }
