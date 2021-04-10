@@ -13,19 +13,13 @@ class Pertanyaan extends Migration
      */
      public function up()
      {
-         Schema::create('pertanyaan', function (Blueprint $table) {
+         Schema::create('pertanyaan_new', function (Blueprint $table) {
              $table->id();
              $table->string('judul');
              $table->string('isi');
              $table->unsignedBigInteger('vote');
              $table->string('jawaban_terbaik');
-             $table->timestamp('time');
-             $table->unsignedBigInteger('id_jawaban');
-             $table->unsignedBigInteger('id_pengguna');
-         });
-
-         Schema::table('pertanyaan', function (Blueprint $table){
-             $table->foreign('id_pengguna')->references('id')->on('pengguna');
+             $table->timestamps();
          });
      }
 
