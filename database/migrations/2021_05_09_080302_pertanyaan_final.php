@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PertanyaanNew extends Migration
+class PertanyaanFinal extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class PertanyaanNew extends Migration
      */
     public function up()
     {
-        Schema::create('pertanyaan_new', function (Blueprint $table) {
+        Schema::create('pertanyaan_final', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('tag_id');
@@ -33,6 +33,6 @@ class PertanyaanNew extends Migration
      */
     public function down()
     {
-         Schema::dropIfExists('pertanyaan_new');
+        Schema::dropIfExists('pertanyaan_final');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PertanyaanNew extends Migration
+class JawabanNew extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class PertanyaanNew extends Migration
      */
     public function up()
     {
-        Schema::create('pertanyaan_new', function (Blueprint $table) {
+        Schema::create('jawaban_new', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('tag_id');
-            $table->foreignId('jawaban_id')->nullable();
-            $table->string('judul');
+            $table->foreignId('pertanyaan_id');
             $table->string('isi');
             $table->unsignedBigInteger('vote');
-            $table->string('jawaban_terbaik');
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ class PertanyaanNew extends Migration
      */
     public function down()
     {
-         Schema::dropIfExists('pertanyaan_new');
+        Schema::dropIfExists('jawaban_new');
     }
 }

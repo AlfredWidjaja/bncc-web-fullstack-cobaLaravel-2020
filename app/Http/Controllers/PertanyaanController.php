@@ -50,6 +50,8 @@ class PertanyaanController extends Controller
 
         Pertanyaan::create([
             'judul' => $request->judul,
+            'user_id' => 1,
+            'tag_id' => 1,
             'vote' => 0,
             'jawaban_terbaik' => "belum ada",
             'isi' => $request->isi,

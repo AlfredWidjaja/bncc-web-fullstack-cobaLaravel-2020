@@ -15,6 +15,9 @@ class Pertanyaan extends Migration
      {
          Schema::create('pertanyaan_new', function (Blueprint $table) {
              $table->id();
+             $table->foreignId('user_id');
+             $table->foreignId('tag_id');
+             $table->foreignId('jawaban_id')->nullable();
              $table->string('judul');
              $table->string('isi');
              $table->unsignedBigInteger('vote');

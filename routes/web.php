@@ -21,7 +21,12 @@
     Route::post('/welcome', 'AuthController@signUp');
     */
 
+    Auth::routes();
+
+    Route::get('/home', 'HomeController@index')->name('home');
+
     //Tugas week 13
+
     Route::get('/', function(){
         return view('table');
     });
@@ -30,11 +35,18 @@
         return view('data-tables');
     });
 
+
     Route::get('/pertanyaan', 'PertanyaanController@index');
-    Route::get('/pertanyaan/create', 'PertanyaanController@create');
-    Route::post('/pertanyaan', 'PertanyaanController@store');
+    Route::get('/pertanyaan/create', 'PertanyaanController@create')
+        ->middleware('auth');
+    Route::post('/pertanyaan', 'PertanyaanController@store')
+        ->middleware('auth');
     Route::get('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@show');
-    Route::get('/pertanyaan/{pertanyaan_id}/edit', 'PertanyaanController@edit');
-    Route::put('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@update');
-    Route::delete('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@destroy');
+    Route::get('/pertanyaan/{pertanyaan_id}/edit', 'PertanyaanController@edit')
+        ->middleware('auth');
+    Route::put('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@update')
+        ->middleware('auth');
+    Route::delete('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@destroy')
+        ->middleware('auth');
+
 ?>
